@@ -1,0 +1,175 @@
+body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #8d745d;
+	--clip: #59443b;
+}
+
+body:before, body:after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: repeating-conic-gradient(#0003 0.000001%, #fff0 .00005%, #fff0 .00035%, #fff0 .00005%), repeating-conic-gradient(#fff2 0.00002%, #fff0 .00008%, #fff0 .0008%, #fff0 .00008%);
+	opacity: 0.75;
+	filter: blur(1px);
+}
+body:after {
+	transform: rotate(180deg) scale(5);
+	filter: none;
+}
+
+
+body * {
+	box-sizing: border-box;
+}
+
+.content {
+	width: 500px;
+	height: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	filter: drop-shadow(0px 1px 1px rgba(255,255,255,.3)) drop-shadow(0px -1px 1px rgba(0,0,0,.75)) drop-shadow(0px -1px 0px rgba(0,0,0,.2));
+}
+
+.content:before, .content:after {
+	content: "EFFECT";
+	position: absolute;
+	bottom: 5px;
+	right: 50px;
+	font-family: Arial, Helvetica, serif;
+	color: var(--clip);
+	font-size: 25px;
+}
+.content:after {
+	content:"CSS";
+	top: -5px;
+	left: 55px;
+	font-size: 40px;
+}
+
+.circle {
+	border: 15px solid white;
+	position: absolute;
+	width: 65px;
+	height: 57px;
+	border-radius: 100% 0 0 100%;
+	border-color: var(--clip) #fff0 var(--clip) var(--clip);
+	top: 0;
+	left: 0;
+	border-right-width: 0;
+}
+
+
+.circle + .circle {
+	transform: rotateY(180deg) rotateX(180deg) translate(-33px, -42px);
+}
+
+
+.circle:before {
+	content: "";
+	height: 15px;
+	width: 25px;
+	position: absolute;
+	background: var(--clip);
+	right: -25px;
+	top: -15px;
+	border-radius: 0 15px 15px 0;
+}
+
+
+
+.letter-d:before {
+	content: "";
+	border: 15px solid var(--clip);
+	border-color: var(--clip) var(--clip) var(--clip) #fff0;
+	width: 70px;
+	height: 70px;
+	margin-top: 0;
+	left: 15px;
+	position: absolute;
+	border-radius: 0% 100% 100% 0% / 0% 100% 100% 0%;
+	border-left-width: 0;
+}
+
+.letter-d:after {
+	content: "";
+	position: absolute;
+	width: 15px;
+	height: 100%;
+	background: var(--clip);
+	left: 5px;
+	border-radius: 15px;		
+}
+
+
+
+
+
+
+
+
+[class^="letter-"], [class*="letter-"] {
+	height: 100px;
+	width: 100px;
+	transition: all 0.5s ease 0s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation: initial-letter 1s ease 1s 2 alternate;
+	position: relative;
+	/*box-shadow: 0 0 1px 0 red;*/
+}
+
+
+.letter-a:before, .letter-a:after {
+	content: "";
+	border-left: 15px solid var(--clip);
+	height: 109px;
+	border-radius: 15px;
+	transform: rotate(25deg);
+	position: absolute;
+	transform-origin: center 6px;
+	top: 0;
+}
+.letter-a:after {
+	transform: rotate(-25deg);
+}
+.letter-a span {
+	border-bottom: 15px solid var(--clip);
+	width: 65px;
+	top: 65px;
+	left: 18px;
+	border-radius: 15px;
+	position: absolute;
+}
+
+
+
+
+.letter-n:before, .letter-n:after {
+	content: "";
+	position: absolute;
+	width: 15px;
+	height: 100%;
+	background: var(--clip);
+	left: 5px;
+	border-radius: 15px;
+	box-shadow: 75px 0 0 0px var(--clip);
+}
+
+.lette r-n:after {
+	height: calc(100% + 25px);
+	left: 1px;
+	top: -7px;
+	box-shadow: none;
+	transform-origin: 20px 5px;
+	transform: rotate(-40deg);
+}
